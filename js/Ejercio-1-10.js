@@ -86,10 +86,50 @@ invetir_palabra("hola mundo","","");
 /*6) Programa una función para contar el número de veces que se repite una palabra en un texto largo,
  pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2. */
 
- const texto_Largo=(cadena="",repetir=undefined)=>{ 
+ const texto_Largo=(cadena="",repetir="")=>{ 
     if(!cadena) return console.warn("no ingresate ningun texto");
-    if(repetir=== undefined ) return console.error("no ingresate el parametro");
-    console.log(cadena.repeat(repetir))
+    if(!repetir) return console.error("no ingresate el parametro");
+
+     let i=0,contador=0;
+
+     while(i!==-1){
+        i = cadena.indexOf(repetir,i);
+        if(i!==-1){
+            i++
+            contador++
+        }
+     }
+     return console.info(`la palabra ${repetir} se repite ${contador} veces`);
+    
+ }
+ texto_Largo("");
+ texto_Largo("hola");
+ texto_Largo("hola mundo adios mundo mundo","mundo");
+
+ /**************************************************************************************************************/
+ /*7) Programa una función que valide si una palabra o frase dada, es un palíndromo 
+ (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.*/
+
+ const polidramo=(texto="")=>{
+    if (!texto) return console.warn("No ingresaste un texto ");
+     texto= texto.toLocaleLowerCase()
+    let reverse = texto.split('').reverse().join("");
+   /*
+   //operador ternario
+ return(texto === reverse)
+   ? console.info(`si es palidromo la palabra original es ${texto} y alreves ${reverse}`)
+   :    console.info(`No es palidromo la palabra original es ${texto} y alreves ${reverse}`)
+   */
+  if(texto === reverse){
+    console.info(`si es palidromo la palabra original es ${texto} y alreves ${reverse}`)
+  }else{
+    console.info(`No es palidromo la palabra original es ${texto} y alreves ${reverse}`)
+  }
 
  }
- texto_Largo("hola mundo adios mundo","mundo")
+ polidramo("");
+ polidramo("Salas")
+ polidramo("reconocer");
+ polidramo("Somos");
+ polidramo("hola");
+ /****************************************************************************************************************** */
