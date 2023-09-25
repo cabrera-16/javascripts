@@ -135,8 +135,47 @@ invetir_palabra("hola mundo","","");
  /****************************************************************************************************************** */
 /* 8) Programa una función que elimine cierto patrón de caracteres de un texto dado, 
 pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.*/
-const eliminar_patron=(texto="")=>{
-  if (!texto) return ("No ingresate el texto");
 
+const eliminar_Patron=(texto="",patron="")=>{
+   
+  if (!texto) return console.warn("No ingresate el texto");
+  if (!patron) return console.error(" no ingresaste un patron");
+  /*ojo Para una búsqueda global que no distinga entre mayúsculas y 
+  minúsculas, utilice el modificador "i" junto con el modificador g. */
+  console.info(texto.replace (new RegExp (patron ,"ig"),""));
+  console.log (patron);
+  console.log(texto)
 }
+eliminar_Patron("");
+eliminar_Patron("xyz1, xyz2, xyz3, xyz4 y xyz5");
+eliminar_Patron("xyz1, xyz2, xyz3, xyz4 y xyz5","xyz");
+
+/************************************************************************************ */
+
+/**9) Programa una función que obtenga un numero aleatorio entre 501 y 600 */
+
+const numero_Aleatorio=()=> {return console.info(Math.round(Math.random()*100+500))}
+numero_Aleatorio();
+
+/*10) Programa una función que reciba un número y evalúe si es capicúa o 
+no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true.*/
+
+const numero_Capicua = (numero=0)=>{
+  if (!numero)return console.warn("No ingresaste el numero");
+  if (typeof numero ==="string") return console.error("esto no es un numero es una cadena");
+// toString te devuelve una representación en cadena de texto del objeto sobre el cual lo invoque
+let numero_Cambiado=numero.toString();
+let alreves = numero_Cambiado.split("").reverse().join("")
+
+
+if (numero_Cambiado === alreves){
+  console.info(`si es capicua numero original ${numero_Cambiado} numero al reves ${alreves} Es Capicúa`)
+}else {
+  console.info (`No es capicua el numero original ${numero_Cambiado}, numero al revés ${alreves}`);
+}
+console.log(numero_Cambiado)
+console.log(alreves)
+}
+numero_Capicua( 2002)
+
 
