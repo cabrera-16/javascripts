@@ -89,6 +89,86 @@ const par_Impares=(n=undefined)=>{
     grado(4,"e");
     grado(2,"hola")
     grado(100,"C");
-    grado(100,"F")
+    grado(100,"F");
+
+    /*
+15) Programa una función para convertir números de base binaria a decimal y viceversa, 
+pe. miFuncion(100,2) devolverá 4 base 10.*/
+const binario_Decimal=(n=undefined,base=undefined)=>{
+   
+    if (n=== undefined)return console.warn("no ingresaste un numero");
+    if (typeof n !=="number")console.error(` esto no es un numero `);
+    if (base === undefined)return console.warn(" no ingresaste la base");
+    if (typeof base !=="number")return console.error("esto no un numero");
+    // binario en base 2
+    if (base===2 ){
+        console.info(`${n} base ${base} = ${parseInt(n,base)} en base 10  `);
+        // decimal en base 1
+    }else if(base ===10){
+        console.info(` ${n} base ${base} = ${(n.toString(2))} en base 2 `);
+    }else{
+         return console.info(`${base} No es base 10 ó 2...`);
+    }
+}
+binario_Decimal();
+binario_Decimal("")
+binario_Decimal(4,"")
+binario_Decimal(111111,2);
+binario_Decimal(63,10);
+
+/*16) Programa una función que devuelva el monto final después de aplicar un descuento a una cantidad dada,
+ pe. miFuncion(1000, 20) devolverá 800.*/
+const monto_Final=(monto=undefined,descuento=undefined)=>{
+    if (monto === undefined)return console.warn("no ingresate el monto");
+
+    if (typeof monto !=="number")return console.error("solo se permite numero");
+
+    if (descuento === undefined ) return console.warn("no ingresaste el descuento");
+
+    if( typeof descuento !== "number") return console.error("solo se permite numero");
+
+    if( Math.sign(descuento) ===-1) return console.warn("el numero no puede ser negativo")
+
+    let des= ((monto-(descuento/100)*monto));
+
+    return console.info( `monto inicial es ${monto} y el descuento es ${descuento}%
+     el monto final es ${(des)}`)    
+
+}
+monto_Final();
+monto_Final("");
+monto_Final(4, );
+monto_Final(4,"")
+monto_Final(1000,20);
+
+/*17) Programa una función que dada una fecha válida determine cuantos años han pasado hasta 
+el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020). */
     
-    
+    const fecha_Valida=(fecha=undefined)=>{
+        if(fecha === undefined) return console.warn("no ingresate la fecha");
+        if(!( fecha instanceof Date))return console.error("el valor q ingresaste no es una fecha valida");
+
+        let hoyMenosFecha= new Date().getTime()-fecha.getTime();
+
+        let aniomda =1000*60*60*24*365;
+
+        let aniohumano =Math.floor(hoyMenosFecha/aniomda)
+
+        return (Math.sign(aniohumano)===-1)
+
+        ? console.info(`faltan ${Math.abs(aniohumano)} para el ${fecha.getFullYear()}`)
+
+        :(Math.sign(aniohumano)===1)
+
+        ? console.info( `Han pasado ${aniohumano} año desde ${fecha.getFullYear()}`)
+
+        : console.info(`Estamos en año actual ${fecha.getFullYear()}`)
+
+        
+
+    }
+    fecha_Valida();
+    fecha_Valida([]);
+    fecha_Valida(new Date(1991,5,16));
+    fecha_Valida(new Date (2091,5,16))
+    fecha_Valida(new Date())
