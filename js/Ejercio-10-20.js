@@ -146,6 +146,7 @@ el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020)
     
     const fecha_Valida=(fecha=undefined)=>{
         if(fecha === undefined) return console.warn("no ingresate la fecha");
+
         if(!( fecha instanceof Date))return console.error("el valor q ingresaste no es una fecha valida");
 
         let hoyMenosFecha= new Date().getTime()-fecha.getTime();
@@ -170,5 +171,111 @@ el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020)
     fecha_Valida();
     fecha_Valida([]);
     fecha_Valida(new Date(1991,5,16));
-    fecha_Valida(new Date (2091,5,16))
-    fecha_Valida(new Date())
+    fecha_Valida(new Date (2091,5,16));
+    fecha_Valida(new Date());
+    
+/*18) Programa una función que dada una cadena de texto cuente el número de vocales y consonantes,
+ pe. miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5.*/
+
+ const contarVocalConso =(cadena=undefined)=>{
+    if(!cadena) return console.warn(" no ingresaste un texto.");
+    if (typeof cadena !=="string") return console.error(`el valor ${cadena} ingresado, no es un texto`)
+
+/*
+    let vocales = "aáeéiíoóuú";
+    let consonantes= "bcdfghjklmnpqrstvwxyz";
+    let cantidadVocales =0;
+    let cantidadConsonante =0;
+    let resul
+    for(const letra of cadena){
+        if(vocales.includes(letra.toLocaleLowerCase())){
+            cantidadVocales++
+          
+        }
+         if(consonantes.includes(letra.toLocaleLowerCase())){
+          cantidadConsonante++
+            }
+        }
+        return console.info(`el texto ${cadena} tiene  ${cantidadVocales} vocales y ${cantidadConsonante} consonantes`)
+    }*/
+    // expresiones regulares
+    let vocales =0;
+    let consonantes =0;
+    for(const letra of cadena){
+      if (/["aáeéiíoóuú"]/.test(letra.toLocaleLowerCase())) {
+        vocales ++
+
+      }if(/["bcdfghjklmnñpqrstvwxyz"]/.test(letra.toLocaleLowerCase())){
+        consonantes++
+      }
+
+    }//return console.info(`el texto ${cadena} tiene  ${vocales} vocales y ${consonantes} consonantes`)
+    return console.info({
+        cadena,
+        vocales,
+        consonantes
+    })
+   
+}
+contarVocalConso();
+contarVocalConso(3);
+ contarVocalConso("hola mundo");
+
+/*19) Programa una función que valide que un texto sea un nombre válido, pe. 
+miFuncion("Jonathan MirCha") devolverá verdadero.*/
+const validar_Texto =(cadena="")=>{
+    if (!cadena) return console.warn("no ingresate el texto.");
+    if (typeof cadena !=="string") return console.error(`el valor ${cadena} ingresado, no es un texto`);
+
+     //return console.info(cadena.includes("jonathan mircha"));
+
+     // expresesiones regulares
+        let expreReg = /^[a-zñaáeéiíoóuú\s]+$/g.test(cadena.toLocaleLowerCase());
+       // evalúe.test(cadena.toLocaleLowerCase())
+        /*
+        if (expreReg){
+            console.info(`${cadena}, es un Nombre Valido.`);
+        }else{
+            console.info (`${cadena}, No es un Nombre Válido `)
+        }return (expreReg)*/
+        return (expreReg)
+        ?console.info(`${cadena},es un Nombre Valido`)
+        :console.info( `${cadena},No es un Nombre Valido` )
+        
+    
+
+}
+validar_Texto();
+validar_Texto(3)
+validar_Texto("JOSE MIGUEL CABRERA,*")
+
+
+/*20) Programa una función que valide que un texto sea un email válido, pe.
+ miFuncion("jonmircha@gmail.com") devolverá verdadero.*/
+
+ const valiar_email=(cadena="")=>{
+    if (!cadena)return console.warn("no ingresaste el texto");
+    if (typeof cadena !=="string")return console.error(`el valor ${cadena} ingresado, no es un texto`);
+
+        //return console.info(cadena.includes("jonmircha@gmail.com"));
+        let expreReg =/[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/i.test(cadena);
+        return (expreReg)
+        ? console.info(`${cadena}, es un Email Valido`)
+        :   console.info(`${cadena}, No es un Email Valido`)
+        
+
+
+
+ }
+ valiar_email();
+ valiar_email("JONMIRCHA@GMAIL.COM");
+
+/* 21) Programa una función que dado un array numérico devuelve otro array con los
+ números elevados al cuadrado, pe. mi_funcion([1, 4, 5]) devolverá [1, 16, 25].*/
+
+/*22) Programa una función que dado un array devuelva el número mas
+ alto y el más bajo de dicho array, pe. miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60].*/
+
+/*23) Programa una función que dado un array de números devuelva un objeto con 2 arreglos en el primero 
+almacena los números pares y en el segundo los impares, pe. miFuncion([1,2,3,4,5,6,7,8,9,0])
+ devolverá {pares: [2,4,6,8,0], impares: [1,3,5,7,9]}.*/
