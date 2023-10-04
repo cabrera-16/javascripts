@@ -104,7 +104,29 @@ ordinario_des([7, 5,7,8,6]);
        return console.info(setSinRepetir);
 
  }
+
+ duplicado(["x", 10, "x", 2, "10", 10, true, true]);
+
  
- duplicado(["x", 10, "x", 2, "10", 10, true, true])
 /*26) Programa una función que dado un arreglo de números obtenga el promedio,
  pe. promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5.*/
+ const promedio_array=(arr=undefined)=>{
+    if (arr === undefined) return console.warn("No ingresaste un arreglo de numeros");
+    if (!(arr instanceof Array)) return console.warn("No ingresaste un array");
+    if(arr.length === 0) return console.error("el arreglo esta vacio ");
+    for(const num of arr){
+        if (typeof num !=="number") return console.warn(`${num}, no es un numero`);
+    } 
+        let total = arr.reduce((a,b)=> a+b)/arr.length;
+
+    console.info({
+        total:arr,
+        promedio:total
+
+    });
+   // console.info(promedioMin);
+ }
+ promedio_array();
+ promedio_array({});
+ promedio_array([]);
+ promedio_array([9,8,7,6,5,4,3,2,1,0]);
