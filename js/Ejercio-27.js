@@ -15,7 +15,7 @@ aceptados*.
 - Crea un método estático que devuelva los géneros aceptados*.
 - Valida que la calificación sea un número entre 0 y 10 pudiendo ser 
 decimal de una posición.
-  - Crea un método que devuelva toda la ficha técnica de la película.
+- Crea un método que devuelva toda la ficha técnica de la película.
   - Apartir de un arreglo con la información de 3 películas genera 3 
     instancias de la clase de forma automatizada e imprime la ficha técnica 
     de cada película.
@@ -23,12 +23,12 @@ decimal de una posición.
 * Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.*/
 
 class Pelicula {
-    constructor({id,titulo,director,ano_Estreno,paisesOr,generos,clasificacion}){
+    constructor({id,titulo,director,estreno,paises,generos,clasificacion}){
         this.id = id;
         this.titulo= titulo;
         this.director= director;
-        this.año_estreno= ano_Estreno;
-        this.paisesorigen= paisesOr;
+        this.estreno=estreno;
+        this.paises= paises;
         this.generos= generos;
         this.clasificacion= clasificacion; 
 
@@ -36,8 +36,8 @@ class Pelicula {
         this.validarIMDB(id);
         this.validarTitulo(titulo);
         this.validarDirector(director);
-        this.validarEstreno(ano_Estreno);
-        this.validarpaise(paisesOr);
+        this.validarEstreno(estreno);
+        this.validarpaise(paises);
         this.validarGeneros(generos);
         this.validarClasificacion(clasificacion)
     }//metodo estatico
@@ -62,7 +62,8 @@ class Pelicula {
         ${longuitud}`)
         return true;
     }// validacion de los numeros
-    validadNumero(propiedad,valor){
+    validadNumero (propiedad,valor){
+
         if(!valor)return console.warn(`${propiedad} "${valor}" esta vacias`);
         if (typeof valor !=="number") console.error(`${propiedad} "${valor}" ,ingresado, no es un numero`);
         return true;
@@ -107,17 +108,18 @@ class Pelicula {
 
      }
      //validacion de los año
-     validarEstreno(ano_Estreno){
-        if(this.validadNumero("año de estreno",ano_Estreno)){
-            if(!(/^([0-9]){4}$/.test(ano_Estreno))){
-                return console.error(`año de estreno "${ano_Estreno}"  solo de permite 4 digitos`);
+     validarEstreno(estreno){
+        if(this.validadNumero("año de estreno",estreno)){
+            if(!(/^([0-9]){4}$/.test(estreno))){
+                return console.error(`año de estreno "${estreno}"  solo de permite 4 digitos`);
             }
         }    
 
      } 
      // validacion de los paises
-     validarpaise(paisesOr){
-        this.validarArreglo("paises",paisesOr);
+     validarpaise(paises){
+        this.validarArreglo("paises",paises);
+        
         
      }
      //metodo validacion de los generos static 
@@ -148,19 +150,41 @@ class Pelicula {
         }
      }
      fichaTernica(){
-        console.info(`ficha ternica\n titulo:${this.titulo}\n
-        director:${this.director}\n año de estreno:${this.ano_estreno}\n paises:${this.paisesOr.join('-')}\ngeneros:${this.generos.join(",")}\nclasificacion${this.clasificacion}\n IMDB=${this.id}`)
+        console.info(`ficha ternica\ntitulo: ${this.titulo}\ndirector: ${this.director}\naño de estreno: ${this.estreno}\npaises: ${this.paises.join('-')}\ngeneros: ${this.generos.join(",")}\nclasificacion: ${this.clasificacion}\nIMDB=${this.id}`);
      }
 }
 
-const miPelicula = new Pelicula({
-    id:"tt1234567",
-    titulo:"asssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-    director:"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-    ano_Estreno:1234,
-    paisesOr: ["republica dominica"],
-    generos:["Adult","War"],
-    clasificacion: 8.2
-});
-miPelicula.fichaTernica()
+//const miPelicula = new Pelicula();
+const Peli=[
+    {
+        id:"tt1234567",
+        titulo:"spideman",
+        director:" Sam Raimi",
+        estreno:2002,
+        paises: ["estado unido"],
+        generos: ["Action","Fantasy"],
+        clasificacion:7.4
+    },
+    {
+        id:"tt1234563",
+        titulo:"Thor",
+        director:"Alan Taylor",
+        estreno:2013,
+        paises: ["estado unido"],
+        generos: ["Action","Adventure"],
+        clasificacion:6.8
+
+    },
+    {     
+        id:"tt1235478",
+        titulo:"Iron man 3",
+        director:"Shane Black",
+        estreno:2013,
+        paises: ["estado unido"],
+        generos: ["Action","Adventure"],
+        clasificacion:8.7
+
+    }
+]
+Peli.forEach(el=> new Pelicula(el).fichaTernica())
 
