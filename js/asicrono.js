@@ -1,4 +1,4 @@
-/********ojo sicrono */
+/********ojo sicrono 
 //entra hilo
 console.log("sicrono");
 //imprime este mensaje
@@ -20,7 +20,7 @@ uno();
 // y sale  hilo final esto es sicrono
 console.log("fin");
 
-/********Asincrona*********/
+/********Asincrona*********
 //entra en consle.
 console.log("Asincrono");
 console.log ("inicio");
@@ -48,3 +48,151 @@ unos();
 console.log("fin");
 
 
+*/
+
+/*/Promesa
+function Promesa(value){
+    if(typeof value !== "number")return  Promise.reject(`error, el valor ${value} no es un numero`);
+    
+return new Promise ((resolve,reject)=>{
+setTimeout(()=>{
+    resolve({
+        value:value,
+       result: value*value
+    });
+
+},0) | Math.random()*100;
+
+});
+    
+}
+Promesa(0)
+.then((obj)=>{
+    console.log("inicio de la promesa");
+    console.info(`promesa ${obj.value},${obj.value}`);
+    return Promesa(1)
+})
+.then((obj)=>{
+    console.info(`promesa ${obj.value}, ${obj.result}`);
+    return Promesa(2);
+
+})
+.then((obj)=>{
+    console.info(`promesa ${obj.value}, ${obj.result}`);
+    return Promesa(3);
+})
+.then((obj)=>{
+    console.info(`promesa ${obj.value}, ${obj.result}`);
+    return Promesa("4")
+
+})
+.then((obj)=>{
+    console.info(`promesa ${obj.value}, ${obj.result}`);
+    return Promesa("5")
+
+})
+.then((obj)=>{
+    console.info(`promesa ${obj.value}, ${obj.result}`);
+    console.log('fin de la promesa')
+
+})
+.catch((err)=>{
+    console.error(err)
+});
+*/
+/*
+//callback
+function call (value,callback){
+    setTimeout(()=>{
+        callback(value,value*value)
+
+    },0| Math.random()*100);
+}
+call(0,(value,result)=>{
+    console.log("inicis callback");
+    console.log(`callback ${value}, ${result}`)
+    call(1,(value,result)=>{
+        console.log(`callback ${value}, ${result}`)})
+        call(2,(value,result)=>{
+            console.log(`callback${value}, ${result}`)})
+         call(3,(value,result)=>{
+            console.log(`callback ${value},${result}`)})
+            call(4,(value,result)=>{
+                console.log(`callback ${value}, ${result}`)})
+                call(4,(value,result)=>{
+                    console.log(`callback ${value}, ${result}`)})
+
+})
+*/
+
+
+function Promesa(value){
+    if(typeof value !== "number")return  Promise.reject(`error, el valor ${value} no es un numero`);
+    
+return new Promise ((resolve,reject)=>{
+setTimeout(()=>{
+    resolve({
+        value:value,
+       result: value*value
+    });
+
+},0) | Math.random()*100;
+
+});
+    
+}
+async function funcionAsincrona(){
+    try{
+        console.log("inicio de Async funtion")
+        let obj= await Promesa(0)
+        console.log(`Async Function ${obj.value},${obj.result}`)
+
+         obj= await Promesa(1)
+        console.log(`Async Function ${obj.value},${obj.result}`)
+
+        obj= await Promesa(2)
+        console.log(`Async Function ${obj.value},${obj.result}`)
+
+         obj= await Promesa("4")
+        console.log(`Async Function ${obj.value},${obj.result}`)
+
+        obj= await Promesa(4)
+        console.log(`Async Function ${obj.value},${obj.result}`)
+
+         obj= await Promesa(5)
+        console.log(`Async Function ${obj.value},${obj.result}`)
+        console. log("fin Async")
+
+    }catch(err){
+        console.error(err)
+
+    }
+}
+funcionAsincrona();
+
+const funcionExpresada = async()=>{
+    try{
+    console.log("inicio de Async funtion")
+    let obj= await Promesa(6)
+    console.log(`Async Function ${obj.value},${obj.result}`)
+
+     obj= await Promesa(7)
+    console.log(`Async Function ${obj.value},${obj.result}`)
+
+    obj= await Promesa(8)
+    console.log(`Async Function ${obj.value},${obj.result}`)
+
+     obj= await Promesa("4")
+    console.log(`Async Function ${obj.value},${obj.result}`)
+
+    obj= await Promesa(10)
+    console.log(`Async Function ${obj.value},${obj.result}`)
+    console. log("fin Async")
+
+}catch(err){
+    console.error(err)
+
+}
+
+}
+funcionExpresada()
