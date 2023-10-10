@@ -195,4 +195,12 @@ const funcionExpresada = async()=>{
 }
 
 }
-funcionExpresada()
+funcionExpresada();
+
+console.log(JSON.parse("{}"));
+console.log("[]");
+console.log("null");
+console.log("19");
+ // JSON.stringify
+ console.log(JSON.stringify({}));
+ console.log(JSON.stringify([1,2,3]))
