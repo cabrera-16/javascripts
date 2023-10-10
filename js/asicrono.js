@@ -203,4 +203,4 @@ console.log("null");
 console.log("19");
  // JSON.stringify
  console.log(JSON.stringify({}));
- console.log(JSON.stringify([1,2,3]))
+ console.log(JSON.stringify([1,2,3]));
