@@ -43,6 +43,7 @@ $body.style.backgroundColor=varDakColor
 $body.style.color = varYellow;
 */
 // clases en css
+/*
 const $card = document.querySelector(".card");
 console.log($card);
 console.log($card.className);
@@ -80,10 +81,11 @@ console.log($v);
 
 
 
-
+*/
 
 //console.log($card.children[2].toggle("rotate-135"))
 //fragmento
+/*
 mese=[
     "enero",
     "febrero",
@@ -107,4 +109,22 @@ mese.forEach((el)=>{
 document.write("<h3>Meses del AñO</H3>");
 $ul.appendChild($fragment);
 document.body.append($ul);//aqui se agrega el fragment al body
+*/
 
+const $prueba= document.createElement("p");
+const text="crenado texto dinamicamente"
+$prueba.innerText=text;
+document.body.append($prueba);
+
+
+const $ul = document.createElement("ul");
+const estaciones =["primavera","verano","otono","invierno"];
+const fragment = document.createDocumentFragment()
+estaciones.forEach(el=>{
+    const $li=document.createElement("li");
+    $li.textContent=el;// para tex conte agrarlo es es 
+    fragment.appendChild($li)// agregando fragmento 
+
+})
+$ul.appendChild(fragment)// agrengando el fragmento lista
+document.body.append($ul)//aqui se agregan los elementos a la lista
