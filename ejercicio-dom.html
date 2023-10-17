@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOM</title>
     <link rel="stylesheet" href="css/estilo.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.1.3/hamburgers.min.css"><link href="dist/hamburgers.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.1.3/hamburgers.min.css">
 </head>
 <body>
     <header class="header">
         <h1>Ejercicios del DOM</h1>
       </header>
-      <button class="panel-btn hamburger hamburger--vortex" type="button">
+      <button class="panel-btn hamburger--emphatic-r" type="button">
         <span class="hamburger-box">
           <span class="hamburger-inner"></span>
         </span>
       </button>
       <aside class="panel">
       <nav class="menu">
-        <a href="#seccion1">seccion 1</a>
+        <a href="#seccion1">Reloj diguital Alarma Sonora</a>
         <a href="#seccion2">seccion 2</a>
         <a href="#seccion3" >seccion 3</a>
         <a href="#seccion4" >seccion 4</a>
@@ -26,9 +26,15 @@
       </nav>
       </aside>
       <main>
+    
         <section id="seccion1" class="seccion"> 
-            <h2>seccion1</h2>
-
+            <h2>Reloj Digital Alarma Sonora</h2>
+            <div id="reloj" >
+              <button id="activar-reloj">iniciar reloj</button>
+              <button id="desativar-reloj">Detener reloj</button>
+              <button id="activar-alarma">iniciar alarma</button>
+              <button id="Detener">Detener alarma</button>
+            </div>
         </section>
         <section id="seccion2" class="seccion"> 
             <h2>seccion2</h2>
@@ -47,6 +53,6 @@
             </section>
 
       </main>
-<script type="module" src="js/dom/index_dom.js"></script>
+  <script type="module" src="js/dom/index_dom.js"></script>
 </body>
 </html>
