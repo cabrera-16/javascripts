@@ -5,5 +5,6 @@ import {relojDigital,alarm} from "./relojDiguital.js";
     /**codigo reutilisable de menus */
     hamburgerMenu(".panel-btn",".panel",".menu a");
     relojDigital("#reloj","#activar-reloj","#desativar-reloj");
-});
+    alarm("assets/alarma-good-morning-5-5.mp3","#activar-alarma","#Detener-alarma");
+ });
 
