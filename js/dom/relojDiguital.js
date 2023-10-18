@@ -45,3 +45,32 @@ export  function alarm(sound,btnplay,btnstop){
     });
 
 }
+export function musicaPley(music,btnpley,btnstop,btnrepetir,bntvolumen){
+    let musicatimeout;
+    const $musica =d.createElement("audio");/**crear un elemento audio y lo guardamos en la varibale $mus*/
+    $musica.src=music;/*agregado src a la mus*/
+    d.addEventListener("click",(e)=>{
+        if(e.target.matches(btnpley)){
+            musicatimeout =setTimeout(()=>{
+                $musica.play();
+                
+            },500);
+        }
+        if(e.target.matches(btnstop)){
+            clearTimeout(musicatimeout);
+            $musica.currentTime=0;
+            d.querySelector(btnpley).disabled =false
+
+        }
+        if(e.target.matches(btnrepetir)){
+            $musica.pause();
+        
+        }
+        if (e.target.matches(bntvolumen)){
+            $musica.volume()
+        }
+       
+    })
+     
+    
+}   
