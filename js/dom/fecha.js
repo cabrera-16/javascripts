@@ -1,11 +1,14 @@
 const d=document;
 
-export  function fechas (id,){
-    const $fe=d.getElementById(f)
-    let anoMes= new Date ().getTime()-
+export  function fechas (id,fechaDate,finalMessage){
+    const $fe=d.getElementById(id);
+    let anoMes= new Date (fechaDate).getTime()
     
-    setInterval((e) => {
-        console.log(anoMes)
+    let countdownTiempo = setInterval((e) => {
+        let ahora = new Date().getTime();
+    
+        console.log(anoMes,ahora)
+        
        
     }, 1000);
 

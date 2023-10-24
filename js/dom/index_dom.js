@@ -9,7 +9,7 @@ import { fechas } from "./fecha.js";
     relojDigital("#reloj","#activar-reloj","#desativar-reloj");
     alarm("assets/alarma-good-morning-5-5.mp3","#activar-alarma","#Detener-alarma");
     musicaPley("assets/musica.mp3","#musica","#quitar","#pausa","#volumen");
-    fechas(co)
+    fechas("countdown","may 16,2023 03:23:19","feliz cumpleño jose miguel cabrera")
 });
 d.addEventListener("keydown",(e)=>{
     shortcuts(e)
