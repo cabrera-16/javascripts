@@ -57,7 +57,7 @@ export function moverBall(e,ball, stage){
      $ball.style.transform=`translate(${x*10}px,${y*10}px)`;
 }
 export function shortcuts(e){
-    console.log(e);
-    console.log(e.type)
+ /*   console.log(e);
+    console.log(e.type)*/
 
 }

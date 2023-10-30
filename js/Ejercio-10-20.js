@@ -128,4 +128,123 @@ binario_Decimal(63,10);
 
      /*17) Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy,
       pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020). */
-    
+      const fecha_Valida=(fecha=undefined)=>{
+        if(fecha === undefined) return console.warn("no ingresate la fecha");
+
+        if(!( fecha instanceof Date))return console.error("el valor q ingresaste no es una fecha valida");
+
+        let hoyMenosFecha= new Date().getTime()-fecha.getTime();
+
+        let aniomda =1000*60*60*24*365;
+
+        let aniohumano =Math.floor(hoyMenosFecha/aniomda)
+
+        return (Math.sign(aniohumano)===-1)
+
+        ? console.info(`faltan ${Math.abs(aniohumano)} para el ${fecha.getFullYear()}`)
+
+        :(Math.sign(aniohumano)===1)
+
+        ? console.info( `Han pasado ${aniohumano} año desde ${fecha.getFullYear()}`)
+
+        : console.info(`Estamos en año actual ${fecha.getFullYear()}`);
+    }
+    fecha_Valida();
+    fecha_Valida([]);
+    fecha_Valida(new Date(1991,5,16));
+    fecha_Valida(new Date (2091,5,16));
+    fecha_Valida(new Date());
+
+/*18) Programa una función que dada una cadena de texto cuente el número de vocales y consonantes,
+ pe. miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5.*/
+
+ const contarVocalConso =(cadena=undefined)=>{
+    if(!cadena) return console.warn(" no ingresaste un texto.");
+    if (typeof cadena !=="string") return console.error(`el valor ${cadena} ingresado, no es un texto`)
+
+/*
+    let vocales = "aáeéiíoóuú";
+    let consonantes= "bcdfghjklmnpqrstvwxyz";
+    let cantidadVocales =0;
+    let cantidadConsonante =0;
+    let resul
+    for(const letra of cadena){
+        if(vocales.includes(letra.toLocaleLowerCase())){
+            cantidadVocales++
+          
+        }
+         if(consonantes.includes(letra.toLocaleLowerCase())){
+          cantidadConsonante++
+            }
+        }
+        return console.info(`el texto ${cadena} tiene  ${cantidadVocales} vocales y ${cantidadConsonante} consonantes`)
+    }*/
+    // expresiones regulares
+    let vocales =0;
+    let consonantes =0;
+    for(const letra of cadena){
+      if (/["aáeéiíoóuú"]/.test(letra.toLocaleLowerCase())) {
+        vocales ++
+
+      }if(/["bcdfghjklmnñpqrstvwxyz"]/.test(letra.toLocaleLowerCase())){
+        consonantes++
+      }
+
+    }//return console.info(`el texto ${cadena} tiene  ${vocales} vocales y ${consonantes} consonantes`)
+    return console.info({
+        cadena,
+        vocales,
+        consonantes
+    })
+
+}
+contarVocalConso();
+contarVocalConso(3);
+ contarVocalConso("hola mundo");
+
+/*19) Programa una función que valide que un texto sea un nombre válido, pe. 
+miFuncion("Jonathan MirCha") devolverá verdadero.*/
+const validar_Texto =(cadena="")=>{
+    if (!cadena) return console.warn("no ingresate el texto.");
+    if (typeof cadena !=="string") return console.error(`el valor ${cadena} ingresado, no es un texto`);
+
+     //return console.info(cadena.includes("jonathan mircha"));
+
+     // expresesiones regulares
+        let expreReg = /^[a-zñaáeéiíoóuú\s]+$/g.test(cadena.toLocaleLowerCase());
+       // evalúe.test(cadena.toLocaleLowerCase())
+        /*
+        if (expreReg){
+            console.info(`${cadena}, es un Nombre Valido.`);
+        }else{
+            console.info (`${cadena}, No es un Nombre Válido `)
+        }return (expreReg)*/
+        return (expreReg)
+        ?console.info(`${cadena},es un Nombre Valido`)
+        :console.info( `${cadena},No es un Nombre Valido` )
+
+
+
+}
+validar_Texto();
+validar_Texto(3)
+validar_Texto("JOSE MIGUEL CABRERA,*")
+
+
+/*20) Programa una función que valide que un texto sea un email válido, pe.
+ miFuncion("jonmircha@gmail.com") devolverá verdadero.*/
+
+ const valiar_email=(cadena="")=>{
+    if (!cadena)return console.warn("no ingresaste el texto");
+    if (typeof cadena !=="string")return console.error(`el valor ${cadena} ingresado, no es un texto`);
+    if (typeof monto !=="number")return console.error("solo se permite numero");
+
+        //return console.info(cadena.includes("jonmircha@gmail.com"));
+        let expreReg =/[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/i.test(cadena);
+        return (expreReg)
+        ? console.info(`${cadena}, es un Email Valido`)
+        :   console.info(`${cadena}, No es un Email Valido`)
+
+ }
+ valiar_email();
+ valiar_email("JONMIRCHA@GMAIL.COM");
