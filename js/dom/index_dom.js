@@ -13,10 +13,11 @@ import { dark_theme } from "./dark-btn.js";
     musicaPley("assets/musica.mp3","#musica","#quitar","#pausa","#volumen");
     fechas("countdown","dec 31,2023 00:00:00","feliz Fin de año")
     scroll_btn(".scroll-top-btn",".hidden");
-    dark_theme(".dark-theme-btn","dark-mode");
+    
 });
 d.addEventListener("keydown",(e)=>{
     shortcuts(e)
     moverBall(e,".ball",".stage");
-})
+});
+dark_theme(".dark-theme-btn","dark-mode");
 
