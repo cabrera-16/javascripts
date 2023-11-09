@@ -4,7 +4,7 @@ import { moverBall,shortcuts } from "./teclado.js";
 import { fechas } from "./fecha.js";
 import { scroll_btn } from "./bton_scroll.js";
 import { dark_theme } from "./dark-btn.js";
-import { reponsiveMedia } from "./reponsive.js";
+import responsiveMedia from "./objeto_reponsive.js";
  const d =document;
  d.addEventListener("DOMContentLoaded",(e)=>{
     /**codigo reutilisable de menus */
@@ -14,7 +14,8 @@ import { reponsiveMedia } from "./reponsive.js";
     musicaPley("assets/musica.mp3","#musica","#quitar","#pausa","#volumen");
     fechas("countdown","dec 31,2023 00:00:00","feliz Fin de año")
     scroll_btn(".scroll-top-btn",".hidden");
-    reponsiveMedia("youtube","min-width=1024",)
+    responsiveMedia("youtube","(min-width:1024px)","contenido mobile","contenido desktop");
+    responsiveMedia("mapps","(min-width:1024px)","contenido mobile","contenido desktop");
     
 });
 d.addEventListener("keydown",(e)=>{
