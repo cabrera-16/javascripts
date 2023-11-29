@@ -6,6 +6,7 @@ import { scroll_btn } from "./bton_scroll.js";
 import { dark_theme } from "./dark-btn.js";
 import responsiveMedia from "./objeto_reponsive.js";
 import respTes from "./resposive_tester.js";
+import det_disp from "../../deteccion_dipos.js";
  const d =document;
  d.addEventListener("DOMContentLoaded",(e)=>{
     /**codigo reutilisable de menus */
@@ -24,7 +25,8 @@ import respTes from "./resposive_tester.js";
     1s0x8eaf8a6f989014c9%3A0xc609435125210d46!2sServicios%20de%20Telecomunicaciones%20Techcomm%20S.R.
     L!5e0!3m2!1ses-419!2sdo!4v1700441227103!5m2!1ses-419!2sdo
     " width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`);
-    respTes("resposive-tester")
+    respTes("resposive-tester");
+    det_disp("user-divice");
 });
 d.addEventListener("keydown",(e)=>{
     shortcuts(e)

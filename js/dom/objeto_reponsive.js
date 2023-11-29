@@ -10,7 +10,7 @@ export default function responsiveMedia(id,mq,mobileContex,destokContex){
     else{
         d.getElementById(id).innerHTML = mobileContex;
     }
-    console.log(e.matches,breakPoint)
+    //console.log(e.matches,breakPoint)
   };
   breakPoint.addListener(resposivo);
 
