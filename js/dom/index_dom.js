@@ -7,6 +7,7 @@ import { dark_theme } from "./dark-btn.js";
 import responsiveMedia from "./objeto_reponsive.js";
 import respTes from "./resposive_tester.js";
 import det_disp from "../../deteccion_dipos.js";
+import networkStatus from "./deteccion_red.js";
  const d =document;
  d.addEventListener("DOMContentLoaded",(e)=>{
     /**codigo reutilisable de menus */
@@ -33,4 +34,5 @@ d.addEventListener("keydown",(e)=>{
     moverBall(e,".ball",".stage");
 });
 dark_theme(".dark-theme-btn","dark-mode");
+networkStatus();
 

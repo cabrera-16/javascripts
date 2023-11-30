@@ -7,7 +7,7 @@ export default function det_disp(id ){
     const $id =d.getElementById(id)
     const isMobile={
         android:()=>au.match(/android/i),
-        ios:()=>au.match(/iphone|ipad|ipod/i),
+        ios:()=>au.match(/iphone|ipad|ipod /i),
         windows:()=>au.match(/windows phone/i),
         any:function(){
             return this.android()||this.ios()||this.windows();
@@ -31,23 +31,32 @@ export default function det_disp(id ){
         ie:()=>au.match(/ie/i),
         edge:()=>au.match(/edge/i),
         any :function(){
-            return
-                this.ie()||
+            return(
+                this.ie()|| 
                 this.edge()||
                 this.chrome()||
                 this.safari()||
                 this.firefox()||
                 this.opera()
-
+            );
             
         }
     }
-    console.log(isMobile.android());
+   /* console.log(isMobile.android());
     console.log(isMobile.ios())
     console.log(isMobile.any())
     console.log(isDestop.linux());
     console.log(isDestop.windows())
     console.log(isBrowser.edge())
-    console.log(isBrowser.chrome())
+    console.log(isBrowser.chrome())*/
+    $id.innerHTML=`<ul>
+        <li>User Agent:<b>${au}</b></li>
+        <li>plataforma:<b>${
+            isMobile.any()?isMobile.any():isDestop.any()
+
+        }</b></li>
+        <li>Navegador:<b>${isBrowser.any()}</b></li>
+
+    </ul>`;
 
 }
