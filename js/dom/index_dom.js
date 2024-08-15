@@ -8,6 +8,8 @@ import responsiveMedia from "./objeto_reponsive.js";
 import respTes from "./resposive_tester.js";
 import det_disp from "../../deteccion_dipos.js";
 import networkStatus from "./deteccion_red.js";
+import wedCam from "./deteccion _wedcam.js";
+import gps from "../../geo.js";
  const d =document;
  d.addEventListener("DOMContentLoaded",(e)=>{
     /**codigo reutilisable de menus */
@@ -28,6 +30,8 @@ import networkStatus from "./deteccion_red.js";
     " width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`);
     respTes("resposive-tester");
     det_disp("user-divice");
+    wedCam("wedcam");
+    gps("geol");
 });
 d.addEventListener("keydown",(e)=>{
     shortcuts(e)

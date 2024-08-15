@@ -1,11 +1,11 @@
-const d=document;
+const d =document;
 const w=window;
-const n=navigator;
+const n= navigator;
 
 export default function networkStatus(){
-    const isOneLine=()=>{
+    const isOnLine=()=>{
         const $div =d.createElement("div");
-
+        
         if(n.onLine){
             $div.textContent="conexion  Restablecida";
             $div.classList.add("online");
@@ -17,7 +17,13 @@ export default function networkStatus(){
         }
         d.body.insertAdjacentElement("afterbegin",$div)
 
+        setTimeout(() => {
+            d.body.removeChild($div)
+            
+        },2000);
+
     }
-    w.addEventListener("online",(e)=>isOneLine());
-    w.addEventListener("offline",(e)=>isOneLine())
+    w.addEventListener("online",(e)=>isOnLine());
+    w.addEventListener("offline",(e)=>isOnLine());
+
 }

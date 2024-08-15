@@ -65,6 +65,7 @@ header h1{
     text-align: center;
 }
 .panel{
+    overflow-y: auto;
     position: fixed;
     z-index:998 ;
     top:0;
@@ -217,7 +218,7 @@ header h1{
 /*****************************network status*********************/
 .online,
 .offline{
-  position: static;
+  position: sticky;
   top: 0;
   z-index: 1000;
   padding: 1rem;

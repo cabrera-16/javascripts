@@ -10,8 +10,12 @@ a.link-dom{
       background-color: var(--dark-color);
       color: var(--yellow-color);
     }
+    .card :hover{
+      color:var(--dark-color);
+      background:var(--yelow-color) ;
+    }
 
-    .card figcaption {
+    .cards figcaption {
       padding: 1rem;
     }
 
