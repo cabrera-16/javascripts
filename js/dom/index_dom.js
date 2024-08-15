@@ -10,6 +10,7 @@ import det_disp from "../../deteccion_dipos.js";
 import networkStatus from "./deteccion_red.js";
 import wedCam from "./deteccion _wedcam.js";
 import gps from "../../geo.js";
+import filtroBuqueda from "./filtro.js";
  const d =document;
  d.addEventListener("DOMContentLoaded",(e)=>{
     /**codigo reutilisable de menus */
@@ -32,6 +33,7 @@ import gps from "../../geo.js";
     det_disp("user-divice");
     wedCam("wedcam");
     gps("geol");
+    filtroBuqueda(".filtro",".card")
 });
 d.addEventListener("keydown",(e)=>{
     shortcuts(e)

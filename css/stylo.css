@@ -5,8 +5,9 @@ a.link-dom{
     --yelow-color:#F7DF1E;
     --dark-color:#222
 }
- .card {
-      display: inline-block;
+ .cards {
+      display: grid;
+      grid-template-columns:  repeat(auto-fit,minmax(250px,1fr ));
       background-color: var(--dark-color);
       color: var(--yellow-color);
     }
@@ -14,8 +15,13 @@ a.link-dom{
       color:var(--dark-color);
       background:var(--yelow-color) ;
     }
+    .card img{
+      width: 100%;
+      height: auto;
+      transition: all 0.3 ease-out;
+    }
 
-    .cards figcaption {
+    .card figcaption {
       padding: 1rem;
     }
 
@@ -33,5 +39,8 @@ a.link-dom{
 
     .sepia {
       filter: sepia(1);
+    }
+    .filter{
+      display: none;
     }
     
