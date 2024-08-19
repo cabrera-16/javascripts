@@ -8,7 +8,7 @@ a.link-dom{
  .cards {
       display: grid;
       grid-template-columns:  repeat(auto-fit,minmax(250px,1fr ));
-      background-color: var(--dark-color);
+      
       color: var(--yellow-color);
     }
     .card :hover{
@@ -41,6 +41,9 @@ a.link-dom{
       filter: sepia(1);
     }
     .filter{
-      display: none;
+      /*display: none;*/
+      visibility: hidden;
+      opacity: 0;
+      order: 1;
     }
     

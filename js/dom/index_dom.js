@@ -11,6 +11,7 @@ import networkStatus from "./deteccion_red.js";
 import wedCam from "./deteccion _wedcam.js";
 import gps from "../../geo.js";
 import filtroBuqueda from "./filtro.js";
+import sorteo_Ganador from "./soteoDigital.js";
  const d =document;
  d.addEventListener("DOMContentLoaded",(e)=>{
     /**codigo reutilisable de menus */
@@ -33,7 +34,8 @@ import filtroBuqueda from "./filtro.js";
     det_disp("user-divice");
     wedCam("wedcam");
     gps("geol");
-    filtroBuqueda(".filtro",".card")
+    filtroBuqueda(".card-filter",".card");
+    sorteo_Ganador("sorteo");
 });
 d.addEventListener("keydown",(e)=>{
     shortcuts(e)
