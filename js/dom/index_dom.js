@@ -35,7 +35,8 @@ import sorteo_Ganador from "./soteoDigital.js";
     wedCam("wedcam");
     gps("geol");
     filtroBuqueda(".card-filter",".card");
-    sorteo_Ganador("sorteo");
+    //sorteo_Ganador("sorteo");
+    sorteo_Ganador("#boton",".player");
 });
 d.addEventListener("keydown",(e)=>{
     shortcuts(e)
